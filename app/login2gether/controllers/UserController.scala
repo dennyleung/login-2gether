@@ -2,14 +2,14 @@ package login2gether.controllers
 
 import javax.inject.Inject
 
-import login2gether.dao.UserDao
+import login2gether.dao.UsersDao
 import play.api.i18n.I18nSupport
 import play.api.libs.json.Json
 import play.api.mvc._
 
 import scala.concurrent.ExecutionContext
 
-class UserController @Inject()(usersDao: UserDao,
+class UserController @Inject()(usersDao: UsersDao,
                                controllerComponents: ControllerComponents)(implicit executionContext: ExecutionContext)
   extends AbstractController(controllerComponents)
   with CustomControllerHelper

@@ -8,11 +8,12 @@ import scala.concurrent.{ExecutionContext, Future}
 trait CustomControllerHelper extends BaseControllerHelpers {
 
   object Header {
-    val USER_ID : String = "userId"
+    val userId : String = "userId"
+    val authenticationToken: String = "Authentication-Token"
   }
 
   def getRequestedUserIdFromHeader()(implicit request: Request[AnyContent]) : Option[Long] = {
-    request.headers.get(Header.USER_ID).map(_.toLong)
+    request.headers.get(Header.userId).map(_.toLong)
   }
 
   def jsonBody[A](maxTextLength: Int)(implicit reader: Reads[A], ec: ExecutionContext): BodyParser[A] =

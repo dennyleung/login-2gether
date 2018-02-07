@@ -1,16 +1,15 @@
 package login2gether.bootstrap
 
-import java.util.UUID
 import javax.inject.Inject
 
-import login2gether.dao.{SecretsDao, UserDao}
+import login2gether.dao.{SecretsDao, UsersDao}
 import login2gether.models.{Secret, User}
 
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.concurrent.duration.Duration
 import scala.util.Try
 
-private class InitialData @Inject()(usersDao: UserDao, secretsDao: SecretsDao)(implicit executionContext: ExecutionContext) {
+private class InitialData @Inject()(usersDao: UsersDao, secretsDao: SecretsDao)(implicit executionContext: ExecutionContext) {
 
   def insert(): Unit = {
     val insertInitialDataFuture: Future[Unit] = for {
